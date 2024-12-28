@@ -20,7 +20,12 @@ export class RestcountriesService {
   getAllCountries(): Observable<any[]> {
 
     return this.http.get<any[]>(`${this.apiUrl}/all
+
       `)
+  }
+
+  getAllCountriesCode(code: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/alpha/${code}`);
   }
 
 }
