@@ -1,0 +1,31 @@
+.ion-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ion-title {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-weight: bold;
+
+}
+
+.ion-content {
+    padding: 10px 10px 5px;
+    margin: 5px 5px 5px;
+}
+
+.ion-toggle {
+    display: flex;
+    align-items: flex-end;
+    margin-left: 500px;
+
+}
+
+.ion-label {
+    display: flex;
+    margin-left: 20px;
+}

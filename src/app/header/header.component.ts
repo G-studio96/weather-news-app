@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
 
   }
   openSettings(): void {
-    this.router.navigate(['/setting/users']);
+    this.router.navigate(['/settings']);
     
   }
 

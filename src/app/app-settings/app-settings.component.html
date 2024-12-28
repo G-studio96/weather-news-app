@@ -1,9 +1,23 @@
-<ion-header [translucent]="true"> 
-  <ion-toolbar> 
-    <ion-title>{{title}}</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar class="ion-toolbar">
+    <ion-title class="ion-title">{{title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content> 
+<ion-content class="ion-content">
+  <ion-card class="ion-card">
+    <ion-card-header class="ion-card-header">
+      <ion-card-title class="ion-card-title">
+        {{menuOptions}}
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card>
 
+  <ion-list class="ion-list">
+    <ion-item *ngFor="let option of options">
+      <ion-label class="ion-label">{{ option }}</ion-label>
+      <ion-toggle [checked]="defaultUnit === option" (ionChange)="savedUnit(option)" class="ion-toggle"></ion-toggle>
+    </ion-item>
+  </ion-list>
 </ion-content>
+
