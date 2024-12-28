@@ -2,8 +2,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { AppSettingsComponent } from './app-settings/app-settings.component';
 import { NgModule } from '@angular/core';
-import { GridComponent } from './grid/grid.component';
-import { CountriesComponent } from './countries/countries.component';
+import { CountriesComponent } from './details/countries.component';
 import { NewsComponent } from './news/news.component';
 
 export const routes: Routes = [
@@ -24,10 +23,6 @@ export const routes: Routes = [
     path: 'settings',
     component: AppSettingsComponent,
   },
-  {
-    path: 'grid', 
-    component: GridComponent, 
-  }, 
   {
     path: 'countries', 
     component: CountriesComponent,

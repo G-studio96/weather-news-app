@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RestcountriesService } from '../services/restcountries.service';
 import { map } from 'rxjs';
-import { IonAvatar, IonContent, IonItem, IonLabel, IonList } from '@ionic/angular/standalone';
+import { IonAvatar, IonButton, IonContent, IonItem, IonLabel, IonList } from '@ionic/angular/standalone';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 
@@ -10,15 +11,18 @@ import { CommonModule } from '@angular/common';
   selector: 'app-countries',
   templateUrl: './countries.component.html',
   styleUrls: ['./countries.component.scss'],
-  imports: [IonLabel, IonAvatar, IonItem,IonList, IonContent, CommonModule]
+  imports: [IonLabel, IonAvatar, IonItem,IonList, IonContent, CommonModule, IonButton]
 })
 export class CountriesComponent implements OnInit {
   
   countries: any[] = [];
+  newsButton: string = 'News';
+  weatherButton: string = 'Weather';
 
-  constructor(private restcountriesService: RestcountriesService) { }
+  constructor(private restcountriesService: RestcountriesService, private router: Router) { }
 
   ngOnInit() {
+  
 
     this.restcountriesService.getAllCountries().pipe(
       map((countries) =>
@@ -37,6 +41,14 @@ export class CountriesComponent implements OnInit {
       }
     );
     
+  }
+
+  pushNews(): void {
+    this.router.navigate(['./news'])
+  }
+
+  pushWeather(): void {
+    this.router.navigate(['./weather'])
   }
 
 }

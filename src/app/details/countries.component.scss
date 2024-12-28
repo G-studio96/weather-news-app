@@ -1,0 +1,19 @@
+.ion-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    padding: 10px;
+}
+
+.ion-item {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgb(0, 0, 0, 0.1);
+    padding: 8px;
+}
+
+.ion-button {
+    display: flex;
+    align-items: baseline;
+}
