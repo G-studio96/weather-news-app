@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonIcon, IonSearchbar, IonButton } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { settingsOutline } from 'ionicons/icons'
-import { SettingService } from '../services/setting.service';
+
 import { Router } from '@angular/router';
 
 @Component({

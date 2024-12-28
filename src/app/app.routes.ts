@@ -1,6 +1,7 @@
-import { Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { AppSettingsComponent } from './app-settings/app-settings.component';
+import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
   {
@@ -17,8 +18,15 @@ export const routes: Routes = [
     component: HeaderComponent,
   },
   {
-    path: 'settings/users', 
+    path: 'settings',
     component: AppSettingsComponent,
-  }
-
+  },
 ];
+
+  @NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule],
+  })
+    
+export class AppRoutingModule {}
+
