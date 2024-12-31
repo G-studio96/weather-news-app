@@ -7,8 +7,8 @@
       <ion-searchbar
         class="custom-searchbar"
         placeholder="Search..."
-        (ionChange)="search($event)"
-        id="searchInput"
+        [ngModel]="usersSearch"
+        (ionInput)="search($event)"
       ></ion-searchbar>
       <ion-button (click)="openSettings()">
         <ion-icon name="settings-outline"></ion-icon>

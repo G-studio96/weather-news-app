@@ -29,6 +29,7 @@ export class CountriesComponent implements OnInit {
         countries.map((country) => ({
           flag: country.flags.png,
           name: country.name.official,
+          code: country.cca2
           
         }))
       )
@@ -43,8 +44,10 @@ export class CountriesComponent implements OnInit {
     
   }
 
-  pushNews(): void {
-    this.router.navigate(['./news'])
+  pushNews(cca2: string): void {
+    this.router.navigate(['./news'], {
+      queryParams: {cca2 }
+    })
   }
 
   pushWeather(): void {

@@ -5,7 +5,7 @@
 export const environment = {
   production: false, 
   weatherApiKey: "",
-  newsApiKey: "",
+  newsAPI_KEY: "pub_63632df0ad841641c92e1f32a8d8686f58cc0"
 };
 
 /*
