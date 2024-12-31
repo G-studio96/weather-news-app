@@ -8,12 +8,12 @@ import { environment } from 'src/environments/environment';
 })
 export class NewsapiService {
   
-  private apiUrl = 'https://newsdata.io/'
+  private apiUrl = 'https://newsdata.io/api/1/latest'
 
   constructor(private http: HttpClient) { }
 
   searchLatestNews(key: string, code: string): Observable<any[]> {
 
-    return this.http.get<any[]>(`${this.apiUrl}/api/1/lastest?apikey=${environment.newsAPI_KEY}/&country=${code}`);
+    return this.http.get<any[]>(`${this.apiUrl}?apikey=${key}&country=${code}`);
   } 
 }

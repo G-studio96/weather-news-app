@@ -5,7 +5,11 @@ import { IonAvatar, IonButton, IonContent, IonItem, IonLabel, IonList } from '@i
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
-
+interface Country {
+  flag: string;
+  name: string;
+  code: string;
+}
 
 @Component({
   selector: 'app-countries',
@@ -13,9 +17,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./countries.component.scss'],
   imports: [IonLabel, IonAvatar, IonItem,IonList, IonContent, CommonModule, IonButton]
 })
+  
+
 export class CountriesComponent implements OnInit {
   
-  countries: any[] = [];
+  countries: Country[] = [];
   newsButton: string = 'News';
   weatherButton: string = 'Weather';
 
@@ -44,9 +50,10 @@ export class CountriesComponent implements OnInit {
     
   }
 
-  pushNews(cca2: string): void {
+  pushNews(cca2: string, countryName: string): void {
     this.router.navigate(['./news'], {
-      queryParams: {cca2 }
+      queryParams: { code: cca2, name: countryName },
+      
     })
   }
 

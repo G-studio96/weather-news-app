@@ -1,3 +1,19 @@
-<p>
-  news works!
-</p>
+<ion-content class="ion-content">
+  <ion-header class="ion-header"> 
+    <ion-toolbar class="ion-toolbar"> 
+      <ion-title> News for {{countryName}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list class="ion-list" *ngIf="news && news.length">
+    <ion-item *ngFor="let article of news" class="ion-item"> 
+      <ion-thumbnail slot="start" *ngIf="article.image">
+        <img [src]="article.image" alt="News Image" class="img"> 
+      </ion-thumbnail>
+      <ion-label class="ion-label">
+        <h2 class="h2">{{ article.title }}</h2>
+        <p class="p">{{ article.description }}</p>
+      </ion-label>
+    </ion-item> 
+  </ion-list>
+</ion-content>

@@ -8,6 +8,7 @@ describe('NewsComponent', () => {
   let fixture: ComponentFixture<NewsComponent>;
 
   beforeEach(waitForAsync(() => {
+    
     TestBed.configureTestingModule({
       declarations: [ NewsComponent ],
       imports: [IonicModule.forRoot()]

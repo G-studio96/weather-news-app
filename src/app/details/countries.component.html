@@ -5,7 +5,7 @@
         <img [src]="country.flag" alt="flag">
       </ion-avatar>
       <ion-label> {{country.name}}</ion-label>
-      <ion-button class="ion-button" (click)="pushNews(country.code)">{{newsButton}}</ion-button>
+      <ion-button class="ion-button" (click)="pushNews(country.code, country.name)">{{newsButton}}</ion-button>
       <ion-button class="ion-button" (click)="pushWeather()">{{weatherButton}}</ion-button>
     </ion-item>
   </ion-list>
