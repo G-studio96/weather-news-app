@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { WeatherapiService } from '../services/weatherapi.service';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs';
+import { IonContent, IonHeader, IonTitle } from '@ionic/angular/standalone';
 
 interface Weather {
   id: number; 
@@ -16,6 +17,7 @@ interface Weather {
   selector: 'app-weather',
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.scss'],
+  imports: [IonHeader, IonTitle, IonContent] 
 })
 export class WeatherComponent implements OnInit {
   
