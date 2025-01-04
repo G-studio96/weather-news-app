@@ -4,20 +4,24 @@ import { ActivatedRoute } from '@angular/router';
 import { WeatherapiService } from '../services/weatherapi.service';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs';
-import { IonContent, IonHeader, IonTitle } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonItem, IonAvatar, IonToolbar, IonList, IonLabel } from '@ionic/angular/standalone';
+import { CommonModule } from '@angular/common';
 
 interface Weather {
   id: number; 
-  main: string; 
+  main: {
+    temp: number
+  }; 
   description: string, 
   icon: string; 
+  
 }
 
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.scss'],
-  imports: [IonHeader, IonTitle, IonContent] 
+  imports: [IonHeader, IonTitle, IonContent, IonItem, IonAvatar, IonToolbar, CommonModule, IonList, IonLabel] 
 })
 export class WeatherComponent implements OnInit {
   
@@ -31,28 +35,28 @@ export class WeatherComponent implements OnInit {
   ngOnInit() {
 
     this.route.queryParams.subscribe((params) => {
-      this.lat = params['lat'];
-      this.long = params['long'];
+      this.lat = +params['lat'];
+      this.long = +params['long'];
       this.capital = params['capital'];
 
     }); 
 
     if (this.lat && this.long) {
-      this.weatherApi.getlocationWeather(this.lat, this.long, UnitSystem.METRIC, environment.weatherApiKey)
-        .pipe(map((location: any) => ({
-          location: location.list.id,
-          name: location.list.capital,
-          main: location.list.main.temp,
-          description: location.list.weather.description,
-          icon: location.list.weather.icon,
-        }))
-        ).subscribe((locWeather: any) => {
+      this.weatherApi.getlocationWeather(this.lat, this.long, UnitSystem.METRIC, environment.weatherApiKey).pipe(
+        map((weather: any) => [{
+          id: weather.id,
+          main: { temp: weather.main.temp },
+          description: weather.weather[0].description,
+          icon: weather.weather[0].icon,
+        }])
+      ).subscribe(
+        (locWeather: any) => {
           this.weather = locWeather;
           console.log('Weather is loaded', this.weather);
-        }, 
-          (error) => {
-            console.log('Error fetching weather', error)
-          });
+        },
+        (error) => {
+          console.log('Error fetching weather', error);
+        });
    
       }
 

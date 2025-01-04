@@ -12,9 +12,9 @@ export class WeatherapiService {
   private apiUrl = "https://api.openweathermap.org/data/2.5/weather";
 
   constructor(private http: HttpClient) { }
-
-  getlocationWeather(lat: number, lon: number, unit: UnitSystem, key: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}?lat=${lat}&lon=${lon}&unit=${unit}}&appid=${key}`)
+ 
+  getlocationWeather(lat: number, lon: number, unit: UnitSystem, key: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}?lat=${lat}&lon=${lon}&units=${unit}&appid=${key}`);
   }
 
 }
