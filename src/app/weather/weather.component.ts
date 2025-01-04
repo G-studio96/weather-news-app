@@ -20,7 +20,8 @@ interface Weather {
 export class WeatherComponent implements OnInit {
   
   weather: Weather[] = []; 
-  latlng: number[] = [];
+  lat: number = 0; 
+  long: number = 0;
   capital: string = ''; 
 
   constructor(private route: ActivatedRoute, private weatherApi: WeatherapiService) { }
@@ -28,26 +29,33 @@ export class WeatherComponent implements OnInit {
   ngOnInit() {
 
     this.route.queryParams.subscribe((params) => {
-      this.latlng = params['loc'];
-      this.capital = params['cap'];
+      this.lat = params['lat'];
+      this.long = params['long'];
+      this.capital = params['capital'];
 
     }); 
 
-    if (this.latlng) {
-      this.weatherApi.getlocationWeather(this.latlng[0], this.latlng[1], UnitSystem.METRIC, environment.weatherApiKey)
+    if (this.lat && this.long) {
+      this.weatherApi.getlocationWeather(this.lat, this.long, UnitSystem.METRIC, environment.weatherApiKey)
         .pipe(map((location: any) => ({
-          location: location.id,
-          main: location.main,
-          description: location.description, 
-          icon: location.icon
+          location: location.list.id,
+          name: location.list.capital,
+          main: location.list.main.temp,
+          description: location.list.weather.description,
+          icon: location.list.weather.icon,
         }))
-      )
-    ).subscribe((locWeather) => {
-        this.weather = locWeather;
-      })
+        ).subscribe((locWeather: any) => {
+          this.weather = locWeather;
+          console.log('Weather is loaded', this.weather);
+        }, 
+          (error) => {
+            console.log('Error fetching weather', error)
+          });
+   
+      }
 
     }
 
   }
 
-}
+

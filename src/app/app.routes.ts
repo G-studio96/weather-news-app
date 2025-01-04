@@ -4,6 +4,7 @@ import { AppSettingsComponent } from './app-settings/app-settings.component';
 import { NgModule } from '@angular/core';
 import { CountriesComponent } from './details/countries.component';
 import { NewsComponent } from './news/news.component';
+import { WeatherComponent } from './weather/weather.component';
 
 export const routes: Routes = [
   {
@@ -30,6 +31,10 @@ export const routes: Routes = [
   {
     path: 'news', 
     component: NewsComponent,
+  }, 
+  {
+    path: 'weather', 
+    component: WeatherComponent,
   }
 ];
 
