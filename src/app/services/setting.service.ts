@@ -36,13 +36,6 @@ export class SettingService {
     this.unitSystem = unit;
   }
 
-  convertTemperature(value: number): number {
-    if (this.unitSystem === UnitSystem.IMPERIAL) {
-      return (value * 9) / 5 + 32;
-    } else if (this.unitSystem === UnitSystem.METRIC) {
-      return (value - 32) * (5 / 9);
-    }
-    return value; 
-  }
+  
 
 }
