@@ -1,12 +1,12 @@
 <ion-content class="ion-content"> 
   <ion-list class="ion-list">
     <ion-item *ngFor="let country of countries" class="ion-item">
-      <ion-avatar slot="start">
+      <ion-avatar slot="start" class="">
         <img [src]="country.flag" alt="flag">
       </ion-avatar>
       <ion-label> {{country.name}}</ion-label>
       <ion-button class="ion-button" (click)="pushNews(country.code, country.name)">{{newsButton}}</ion-button>
-      <ion-button class="ion-button" (click)="pushWeather()">{{weatherButton}}</ion-button>
+      <ion-button class="ion-button" (click)="pushWeather(country.latlng[0], country.latlng[1], country.capital)">{{weatherButton}}</ion-button>
     </ion-item>
   </ion-list>
 </ion-content>

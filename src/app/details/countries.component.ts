@@ -5,10 +5,14 @@ import { IonAvatar, IonButton, IonContent, IonItem, IonLabel, IonList } from '@i
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
+
 interface Country {
   flag: string;
   name: string;
   code: string;
+  latlng: number[];
+  capital: string;
+
 }
 
 @Component({
@@ -35,7 +39,9 @@ export class CountriesComponent implements OnInit {
         countries.map((country) => ({
           flag: country.flags.png,
           name: country.name.official,
-          code: country.cca2
+          code: country.cca2,
+          latlng: country.latlng,
+          capital: country.capital
           
         }))
       )
@@ -57,8 +63,11 @@ export class CountriesComponent implements OnInit {
     })
   }
 
-  pushWeather(): void {
-    this.router.navigate(['./weather'])
+  pushWeather(long: number, lat: number, capital: string): void {
+    this.router.navigate(['./weather'], {
+      queryParams: {long, lat, cap: capital}
+    })
+    
   }
 
 }

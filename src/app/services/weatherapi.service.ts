@@ -13,8 +13,8 @@ export class WeatherapiService {
 
   constructor(private http: HttpClient) { }
 
-  getlocationWeather(lat: number, lon: number, part: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}?lat=${lat}&lon=${lon}&unit=${UnitSystem}}&appid=${environment.weatherApiKey}`)
+  getlocationWeather(lat: number, lon: number, unit: UnitSystem, key: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}?lat=${lat}&lon=${lon}&unit=${unit}}&appid=${key}`)
   }
 
 }
