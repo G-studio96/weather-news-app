@@ -4,14 +4,15 @@ import { NewsapiService } from '../services/newsapi.service';
 import { WeatherapiService } from '../services/weatherapi.service';
 import { addIcons } from 'ionicons';
 import { cloudyOutline, homeOutline, newspaperOutline } from 'ionicons/icons';
-import { IonContent, IonHeader, IonIcon, IonTab, IonTabBar, IonTabButton, IonTabs, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonIcon, IonLabel, IonRouterLink, IonTab, IonTabBar, IonTabButton, IonTabs, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+
 
 
 @Component({
   selector: 'app-tab',
   templateUrl: './tab.component.html',
   styleUrls: ['./tab.component.scss'],
-  imports: [IonTabs, IonTab, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonTabBar, IonTabButton]
+  imports: [IonTabs, IonTab, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonTabBar, IonTabButton, IonTabBar, IonLabel, ]
 })
 export class TabComponent implements OnInit {
   
@@ -30,13 +31,6 @@ export class TabComponent implements OnInit {
 
   ngOnInit() { }
 
-  pushNews(): void {
-    this.route.navigate(['/latestNews'])
-  }
-
-  pushWeather(): void {
-    this.route.navigate(['/latestWeather'])
-  }
   
 
 
