@@ -1,5 +1,5 @@
 <ion-header class="ion-header" [translucent]="true">
-  <ion-toolbar class="ion-header">
+  <ion-toolbar class="ion-toolbar">
     <ion-title class="ion-title">Weather for {{capital}}</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -8,12 +8,12 @@
   <ion-list class="ion-list" *ngIf="weather.length > 0">
     <ion-item class="ion-item" *ngFor="let w of weather">
       <ion-avatar slot="start">
-        <img [src]="'http://openweathermap.org/img/wn/' + w.icon + '@2x.png'" alt="Weather">
+        <img [src]="'http://openweathermap.org/img/wn/' + w.icon + '@2x.png'" alt="Weather" class="img">
       </ion-avatar>
       <ion-label>
-        <h1>{{capital}}</h1>
-        <h2>{{w.main.temp}}c</h2>
-        <p>{{w.description}}</p>
+        <h1 class="h1">{{capital}}</h1>
+        <h2 class="h2">{{w.main.temp}}c</h2>
+        <p class="p">{{w.description}}</p>
       </ion-label>
     </ion-item>
   </ion-list>
