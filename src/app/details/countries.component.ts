@@ -65,7 +65,7 @@ export class CountriesComponent implements OnInit {
 
   pushWeather(lat: number, long: number, capital: string): void {
     this.router.navigate(['./weather'], {
-      queryParams: {lat, long, cap: capital}
+      queryParams: {lat, long, capital}
     })
     
   }
