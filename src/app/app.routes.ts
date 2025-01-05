@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { CountriesComponent } from './details/countries.component';
 import { NewsComponent } from './news/news.component';
 import { WeatherComponent } from './weather/weather.component';
+import { TabComponent } from './tab/tab.component';
 
 export const routes: Routes = [
   {
@@ -35,6 +36,11 @@ export const routes: Routes = [
   {
     path: 'weather', 
     component: WeatherComponent,
+  }, 
+
+  {
+    path: 'tab', 
+    component: TabComponent,
   }
 ];
 
